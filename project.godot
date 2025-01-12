@@ -45,6 +45,11 @@ move_right={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="ground"
+2d_physics/layer_5="player"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
