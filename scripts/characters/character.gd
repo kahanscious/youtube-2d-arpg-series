@@ -2,55 +2,42 @@ class_name Character extends CharacterBody2D
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var state_machine: StateMachine = $StateMachine
 
 @export var speed: float = 100.0
 @export var acceleration: float = 800.0
 @export var friction: float = 1000.0
 
+var direction: Vector2 = Vector2.ZERO
 var last_direction: Vector2 = Vector2.DOWN
+var can_attack: bool = true
+var is_attacking: bool = false
 
 func _ready() -> void:
+	GameManager.register_character(self)
 	animation_player.play("idle_down")
 
 
 func _physics_process(delta: float) -> void:
-	var direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
-	if direction.length() > 0:
-		direction = direction.normalized()
-		
-	if direction != Vector2.ZERO:
-		last_direction = direction
-	
-	velocity = direction * speed
-	
-	handle_animations()
+	state_machine.physics_update(delta)
 	
 	move_and_slide()
 	
-func handle_animations() -> void:
-	if velocity != Vector2.ZERO:
-		if velocity.x < 0:
-			animation_player.play("move_left")
-		elif velocity.x > 0:
-			animation_player.play("move_right")
-		elif velocity.y < 0:
-			animation_player.play("move_up")
-		else:
-			animation_player.play("move_down")
+func _unhandled_input(event: InputEvent) -> void:
+	state_machine.handle_input(event)
+	
+func play_animation(animation_name: String) -> void:
+	if animation_player.has_animation(animation_name):
+		animation_player.play(animation_name)
+		
+func get_direction_name() -> String:
+	if last_direction.x < 0:
+		return "left"
+	elif last_direction.x > 0:
+		return "right"
+	elif last_direction.y < 0:
+		return "up"
 	else:
-		if last_direction.x < 0:
-			animation_player.play("idle_left")
-		elif last_direction.x > 0:
-			animation_player.play("idle_right")
-		elif last_direction.y < 0:
-			animation_player.play("idle_up")
-		else:
-			animation_player.play("idle_down")
-			
-			
-			
-			
-			
-			
-			
+		return "down"

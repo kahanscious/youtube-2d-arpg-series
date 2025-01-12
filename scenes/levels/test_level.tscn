@@ -171,3 +171,4 @@ tile_map_data = PackedByteArray("AAAPAAYAAAABAAQAAAA=")
 tile_set = SubResource("TileSet_fp5fn")
 
 [node name="Character" parent="." instance=ExtResource("2_fu7vq")]
+position = Vector2(133, 122)
