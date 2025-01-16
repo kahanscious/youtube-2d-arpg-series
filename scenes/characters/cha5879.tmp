@@ -1,13 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://l33psrubdfjr"]
+[gd_scene load_steps=22 format=3 uid="uid://l33psrubdfjr"]
 
 [ext_resource type="Texture2D" uid="uid://c217j66sp6dlx" path="res://assets/characters/Full Spritesheet.png" id="1_0vw7g"]
 [ext_resource type="Script" path="res://scripts/characters/character.gd" id="1_e6kk1"]
-[ext_resource type="Script" path="res://scripts/characters/state/state_machine.gd" id="3_ci0ge"]
 [ext_resource type="Script" path="res://scripts/characters/state/idle_state.gd" id="4_4o71u"]
 [ext_resource type="Script" path="res://scripts/characters/state/move_state.gd" id="5_52gr1"]
 [ext_resource type="Script" path="res://scripts/characters/state/attack_state.gd" id="6_tppck"]
-[ext_resource type="PackedScene" uid="uid://7mmqtkod6yvx" path="res://components/hurtbox/hurtbox.tscn" id="7_xasxc"]
-[ext_resource type="PackedScene" uid="uid://c33sid50py53w" path="res://components/hitbox/hitbox.tscn" id="8_fhahs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kder7"]
 size = Vector2(14, 16)
@@ -428,8 +425,44 @@ _data = {
 "move_up": SubResource("Animation_yqt07")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8r2v"]
-size = Vector2(8, 15)
+[sub_resource type="GDScript" id="GDScript_sw7eu"]
+script/source = "class_name StateMachine extends Node
+
+var current_state: State = null
+var states: Dictionary = {}
+# {\"idle\": IdleState}
+
+
+func _ready() -> void:
+	await owner.ready
+	
+	for child in get_children():
+		if child is State:
+			states[child.name.to_lower()] = child
+			child.state_machine = self
+			
+	if states.has(\"idle\"):
+		change_state(\"idle\")
+		
+func change_state(new_state_name: String) -> void:
+	if current_state:
+		current_state.exit()
+		
+	if states.has(new_state_name):
+		current_state = states[new_state_name]
+		current_state.enter()
+	else:
+		printerr(\"State \", new_state_name, \" not found!\")
+		
+		
+func physics_update(delta: float) -> void:
+	if current_state:
+		current_state.physics_update(delta)
+		
+func handle_input(event: InputEvent) -> void:
+	if current_state:
+		current_state.handle_input(event)
+"
 
 [node name="Character" type="CharacterBody2D"]
 collision_layer = 16
@@ -462,7 +495,7 @@ libraries = {
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="StateMachine" type="Node" parent="."]
-script = ExtResource("3_ci0ge")
+script = SubResource("GDScript_sw7eu")
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("4_4o71u")
@@ -472,18 +505,3 @@ script = ExtResource("5_52gr1")
 
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("6_tppck")
-
-[node name="Hurtbox" parent="." instance=ExtResource("7_xasxc")]
-collision_layer = 16
-collision_mask = 0
-monitoring = false
-
-[node name="HurtboxCollision" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(0, -7.5)
-shape = SubResource("RectangleShape2D_u8r2v")
-debug_color = Color(0.992157, 0, 0, 0)
-
-[node name="Hitbox" parent="." instance=ExtResource("8_fhahs")]
-monitorable = false
-
-[node name="SwordCollision" type="CollisionShape2D" parent="Hitbox"]

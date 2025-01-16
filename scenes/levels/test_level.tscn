@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://q6jx6qi7ph3x"]
+[gd_scene load_steps=9 format=4 uid="uid://q6jx6qi7ph3x"]
 
 [ext_resource type="Texture2D" uid="uid://d1gvl6lyvj0rs" path="res://assets/environment/forest_.png" id="1_tm0vm"]
 [ext_resource type="Texture2D" uid="uid://7fcufgdyac08" path="res://assets/environment/blueHouse_1_1.png" id="2_0hg2i"]
 [ext_resource type="PackedScene" uid="uid://l33psrubdfjr" path="res://scenes/characters/character.tscn" id="2_fu7vq"]
+[ext_resource type="PackedScene" uid="uid://k8et0frvawkd" path="res://scenes/characters/enemy/slime/slime.tscn" id="4_oj1bn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p3dkm"]
 texture = ExtResource("1_tm0vm")
@@ -171,4 +172,7 @@ tile_map_data = PackedByteArray("AAAPAAYAAAABAAQAAAA=")
 tile_set = SubResource("TileSet_fp5fn")
 
 [node name="Character" parent="." instance=ExtResource("2_fu7vq")]
-position = Vector2(133, 122)
+position = Vector2(161, 126)
+
+[node name="Slime" parent="." instance=ExtResource("4_oj1bn")]
+position = Vector2(64, 80)
