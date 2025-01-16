@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="arpg-youtube-series"
+run/main_scene="res://scenes/levels/test_level.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -25,6 +26,10 @@ window/size/viewport_height=180
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/format_on_save/plugin.cfg", "res://addons/function_type_autocomplete/plugin.cfg")
 
 [input]
 
@@ -59,6 +64,7 @@ attack={
 
 2d_physics/layer_1="ground"
 2d_physics/layer_5="player"
+2d_physics/layer_9="enemy"
 
 [rendering]
 

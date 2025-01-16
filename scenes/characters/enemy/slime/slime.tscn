@@ -1,0 +1,124 @@
+[gd_scene load_steps=15 format=3 uid="uid://k8et0frvawkd"]
+
+[ext_resource type="Script" path="res://scripts/characters/enemy/enemy.gd" id="1_gq548"]
+[ext_resource type="Texture2D" uid="uid://umhrr2bsr827" path="res://assets/characters/slime_purple_side.png" id="2_xerkh"]
+[ext_resource type="Script" path="res://scripts/characters/enemy/state/enemy_state_machine.gd" id="3_mkux0"]
+[ext_resource type="Script" path="res://scripts/characters/enemy/state/slime_idle.gd" id="4_m0fgt"]
+[ext_resource type="Script" path="res://scripts/characters/enemy/state/slime_move.gd" id="5_tivvv"]
+[ext_resource type="PackedScene" uid="uid://c33sid50py53w" path="res://components/hitbox/hitbox.tscn" id="6_57mxt"]
+[ext_resource type="PackedScene" uid="uid://7mmqtkod6yvx" path="res://components/hurtbox/hurtbox.tscn" id="7_uvcpr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_agebr"]
+radius = 5.0
+
+[sub_resource type="Animation" id="Animation_7vv2m"]
+resource_name = "idle"
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_0wpd2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_7b257"]
+resource_name = "move"
+length = 1.5
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e4g76"]
+_data = {
+"RESET": SubResource("Animation_0wpd2"),
+"idle": SubResource("Animation_7vv2m"),
+"move": SubResource("Animation_7b257")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xb2qf"]
+radius = 9.05539
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_stvo0"]
+radius = 6.0
+
+[node name="Slime" type="CharacterBody2D"]
+collision_layer = 256
+script = ExtResource("1_gq548")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -3)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_xerkh")
+hframes = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_agebr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_e4g76")
+}
+autoplay = "idle"
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_mkux0")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_m0fgt")
+
+[node name="Move" type="Node" parent="StateMachine"]
+script = ExtResource("5_tivvv")
+
+[node name="Hitbox" parent="." instance=ExtResource("6_57mxt")]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+
+[node name="HitboxCollision" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_xb2qf")
+debug_color = Color(0, 0.65098, 0, 0)
+
+[node name="Hurtbox" parent="." instance=ExtResource("7_uvcpr")]
+collision_layer = 256
+collision_mask = 0
+monitoring = false
+
+[node name="HurtboxCollision" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_stvo0")
+debug_color = Color(0.996078, 0, 0, 0)

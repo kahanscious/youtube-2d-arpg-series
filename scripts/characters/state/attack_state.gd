@@ -4,7 +4,6 @@ class_name AttackState extends State
 func enter() -> void:
 	GameManager.character.is_attacking = true
 	GameManager.character.can_attack = false
-	
 	GameManager.character.play_animation("attack_" + GameManager.character.get_direction_name())
 	
 func exit() -> void:
