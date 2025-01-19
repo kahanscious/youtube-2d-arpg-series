@@ -1,10 +1,17 @@
 class_name SlimeIdleState extends EnemyState
 
-@export var detect_range: float = 100.0
+@export var detect_range: float = 50.0
+
+var enemy: Enemy
+
+
+func enter():
+	enemy = owner as Enemy
+	enemy.velocity = Vector2.ZERO
+	enemy.animation_player.play("idle")
 
 
 func physics_update(delta: float) -> void:
-	var enemy = owner as Enemy
 	var distance = enemy.global_position.distance_to(GameManager.character.global_position)
 	if distance < detect_range:
 		state_machine.change_state("move")

@@ -1,10 +1,13 @@
 class_name SlimeMoveState extends EnemyState
 
-@export var lose_interest_range: float = 200.0
+@export var lose_interest_range: float = 75.0
 
 
 func physics_update(delta: float) -> void:
 	var enemy = owner as Enemy
+	if enemy.is_knocked_back:
+		return
+
 	var distance = enemy.global_position.distance_to(GameManager.character.global_position)
 	if distance > lose_interest_range:
 		state_machine.change_state("idle")
