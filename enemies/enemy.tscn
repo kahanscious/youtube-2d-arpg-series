@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ud0e82dxvt2k"]
+
+[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_kh3ta"]
+[ext_resource type="Script" path="res://enemies/state/enemy_state_machine.gd" id="2_7rhl5"]
+[ext_resource type="PackedScene" uid="uid://c33sid50py53w" path="res://components/hitbox/hitbox.tscn" id="3_lak8b"]
+[ext_resource type="PackedScene" uid="uid://7mmqtkod6yvx" path="res://components/hurtbox/hurtbox.tscn" id="4_0a01f"]
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 256
+script = ExtResource("1_kh3ta")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+hframes = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_7rhl5")
+
+[node name="Hitbox" parent="." instance=ExtResource("3_lak8b")]
+collision_layer = 0
+collision_mask = 16
+
+[node name="Hurtbox" parent="." instance=ExtResource("4_0a01f")]
+collision_layer = 256
+collision_mask = 0

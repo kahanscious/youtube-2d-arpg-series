@@ -1,7 +1,8 @@
 extends Node
 
+var character_scene: PackedScene = preload("res://character/character.tscn")
 var character: Character = null
 
 
-func register_character(c: Character) -> void:
-	character = c
+func _ready() -> void:
+	character = character_scene.instantiate()
