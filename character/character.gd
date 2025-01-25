@@ -19,8 +19,6 @@ var last_direction: Vector2 = Vector2.DOWN
 var can_attack: bool = true
 var is_attacking: bool = false
 var is_invulnerable: bool = false
-var is_in_cutscene: bool = false
-var can_move: bool = true
 
 
 func _ready() -> void:
@@ -32,10 +30,6 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if is_in_cutscene or not can_move:
-		direction = Vector2.ZERO
-		return
-
 	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if not is_attacking and direction != Vector2.ZERO:
 		last_direction = direction.normalized()
@@ -85,13 +79,3 @@ func start_invulnerability() -> void:
 	is_invulnerable = true
 	await get_tree().create_timer(invulvnerability_time).timeout
 	is_invulnerable = false
-
-
-func stop_movement() -> void:
-	can_move = false
-	direction = Vector2.ZERO
-	velocity = Vector2.ZERO
-
-
-func resume_movement() -> void:
-	can_move = true
