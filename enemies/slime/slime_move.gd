@@ -3,7 +3,7 @@ class_name SlimeMoveState extends EnemyState
 @export var lose_interest_range: float = 75.0
 
 
-func physics_update(delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	var enemy = owner as Enemy
 	if enemy.is_knocked_back:
 		return

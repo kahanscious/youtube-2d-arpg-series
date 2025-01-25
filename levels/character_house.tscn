@@ -530,13 +530,18 @@ tile_set = SubResource("TileSet_x676c")
 tile_map_data = PackedByteArray("AAALAP7/AwANAAAAAAALAP//AwANAAEAAAALAAAAAwANAAIAAAAMAP7/AwAOAAAAAAAMAP//AwAOAAEAAAAMAAAAAwAOAAIAAAAGAP7/AwAMAAQAAAAGAP//AwAMAAUAAAAGAAAAAwAMAAYAAAAGAAEAAwAMAAcAAAAHAP7/AwANAAQAAAAHAP//AwANAAUAAAAHAAAAAwANAAYAAAAHAAEAAwANAAcAAAAIAP7/AwAOAAQAAAAIAP//AwAOAAUAAAAIAAAAAwAOAAYAAAAIAAEAAwAOAAcAAAAKAAYAAwAIAAIAAAAKAAcAAwAIAAMAAAAKAAIAAAAIAAEAAAAKAAMAAAAIAAIAAAALAAIAAAAJAAEAAAALAAMAAAAJAAIAAAAMAAIAAAAKAAEAAAAMAAMAAAAKAAIAAAACAAIAAAABAAUAAAACAAMAAAABAAYAAAADAAIAAAACAAUAAAADAAMAAAACAAYAAAAEAAIAAAADAAUAAAAEAAMAAAADAAYAAAAEAAQAAAADAAcAAAADAAQAAAACAAcAAAACAAQAAAABAAcAAAACAAAAAAAIAAkAAAACAAEAAAAIAAoAAAADAAAAAAAJAAkAAAADAAEAAAAJAAoAAAAJAAcAAAAHAAcAAAAJAAgAAAAHAAgAAAADAAcAAAAGAAcAAAADAAgAAAAGAAgAAAAGAAMAAAAKAAcAAAAGAAQAAAAKAAgAAAA=")
 tile_set = SubResource("TileSet_52xpg")
 
-[node name="CharacterSpawn" parent="." instance=ExtResource("6_qmpxa")]
+[node name="SpawnPoints" type="Node" parent="."]
+
+[node name="FromOutside" parent="SpawnPoints" instance=ExtResource("6_qmpxa")]
 position = Vector2(102, 143)
 
-[node name="LevelTransition" parent="." instance=ExtResource("7_hes2e")]
-next_level_path = "res://levels/test_level.tscn"
+[node name="Transitions" type="Node" parent="."]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelTransition"]
+[node name="LevelTransition" parent="Transitions" instance=ExtResource("7_hes2e")]
+next_level_path = "res://levels/test_level.tscn"
+next_spawn_point = "FromHouse"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Transitions/LevelTransition"]
 position = Vector2(104, 170)
 shape = SubResource("RectangleShape2D_5ejjl")
 debug_color = Color(0.57633, 0.465752, 0.785874, 0.42)

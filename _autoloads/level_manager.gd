@@ -24,11 +24,14 @@ func _on_transition_finished() -> void:
 	level_load_finished.emit()
 
 
+# In level_manager.gd
 func level_setup(level: Level) -> void:
 	current_level = level
 	if GameManager.character.get_parent():
 		GameManager.character.get_parent().remove_child(GameManager.character)
 	current_level.add_child(GameManager.character)
+	# Setup camera limits immediately
+	GameManager.character.camera.setup_camera_limits()
 	level_load_started.emit()
 
 
