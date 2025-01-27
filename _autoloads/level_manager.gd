@@ -30,7 +30,10 @@ func level_setup(level: Level) -> void:
 	if GameManager.character.get_parent():
 		GameManager.character.get_parent().remove_child(GameManager.character)
 	current_level.add_child(GameManager.character)
+<<<<<<< Updated upstream
 	# Setup camera limits immediately
+=======
+>>>>>>> Stashed changes
 	GameManager.character.camera.setup_camera_limits()
 	level_load_started.emit()
 

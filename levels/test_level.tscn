@@ -1,6 +1,10 @@
 [gd_scene load_steps=34 format=4 uid="uid://q6jx6qi7ph3x"]
 
+<<<<<<< Updated upstream
 [ext_resource type="Script" path="res://levels/test_level.gd" id="1_q7spb"]
+=======
+[ext_resource type="Script" path="res://levels/test_level.gd" id="1_ixwrs"]
+>>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://d1gvl6lyvj0rs" path="res://assets/environment/forest_.png" id="1_vver3"]
 [ext_resource type="Texture2D" uid="uid://clagbe14dfr80" path="res://assets/environment/forestPath_.png" id="2_f3gqw"]
 [ext_resource type="Texture2D" uid="uid://dhfsjtlhoi521" path="res://assets/environment/forest_ [fencesAndWalls].png" id="3_ff01n"]
@@ -61,9 +65,15 @@ texture = ExtResource("1_vver3")
 5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -8, -8, -8, -8, 8, 0, 8)
 6:3/0 = 0
 7:3/0 = 0
+<<<<<<< Updated upstream
 7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, -1.5, 8, 2, 2.5, 8, 0)
 8:3/0 = 0
 8:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, 1.5, 8, -2, 2.5, -8, 0)
+=======
+7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, -4, 8, 4, 0)
+8:3/0 = 0
+8:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, 4, 8, -4, 0)
+>>>>>>> Stashed changes
 9:3/0 = 0
 10:3/0 = 0
 11:3/0 = 0
@@ -85,9 +95,15 @@ texture = ExtResource("1_vver3")
 6:4/0 = 0
 6:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 4, 8, 4)
 7:4/0 = 0
+<<<<<<< Updated upstream
 7:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 4, -4, 4, -4, -8)
 8:4/0 = 0
 8:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 4, 4, 4, 4, -8)
+=======
+7:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -4, -8, -4, 4, -8, 4)
+8:4/0 = 0
+8:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 4, -8, 4, 4, 8, 4)
+>>>>>>> Stashed changes
 9:4/0 = 0
 9:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 4, 8, 4)
 10:4/0 = 0
@@ -766,9 +782,19 @@ size = Vector2(21, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1gxs"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_goqfp"]
+size = Vector2(27, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvrs1"]
+size = Vector2(28, 8)
+
 [node name="TestLevel" type="Node2D"]
 y_sort_enabled = true
+<<<<<<< Updated upstream
 script = ExtResource("1_q7spb")
+=======
+script = ExtResource("1_ixwrs")
+>>>>>>> Stashed changes
 
 [node name="Tilemaps" type="Node" parent="."]
 
@@ -788,6 +814,7 @@ tile_map_data = PackedByteArray("AAAdAAcAAAABAAQAAADz/xEAAQABAAEAAAA=")
 tile_set = SubResource("TileSet_fp5fn")
 
 [node name="Slime" parent="." instance=ExtResource("12_yilnx")]
+<<<<<<< Updated upstream
 position = Vector2(64, 121)
 
 [node name="CaveEntryBlocker" type="StaticBody2D" parent="."]
@@ -799,10 +826,18 @@ shape = SubResource("RectangleShape2D_iymj6")
 [node name="SpawnPoints" type="Node" parent="."]
 
 [node name="FromHouse" parent="SpawnPoints" instance=ExtResource("14_72xje")]
+=======
+position = Vector2(62, 135)
+
+[node name="SpawnPoints" type="Node" parent="."]
+
+[node name="Default" parent="SpawnPoints" instance=ExtResource("14_72xje")]
+>>>>>>> Stashed changes
 position = Vector2(461, 196)
 scale = Vector2(14920.4, 5089.6)
 
 [node name="FromCave" parent="SpawnPoints" instance=ExtResource("14_72xje")]
+<<<<<<< Updated upstream
 position = Vector2(64, 76)
 
 [node name="Default" parent="SpawnPoints" instance=ExtResource("14_72xje")]
@@ -823,5 +858,30 @@ next_level_path = "res://levels/character_house.tscn"
 next_spawn_point = "FromOutside"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Transitions/HouseTransition"]
+=======
+position = Vector2(61, 89)
+
+[node name="Transitions" type="Node" parent="."]
+
+[node name="HouseLevelTransition" parent="Transitions" instance=ExtResource("15_c1syf")]
+next_level_path = "res://levels/character_house.tscn"
+next_spawn_point = "HouseSpawn"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Transitions/HouseLevelTransition"]
+>>>>>>> Stashed changes
 position = Vector2(459, 159)
 shape = SubResource("RectangleShape2D_t1gxs")
+
+[node name="CaveTransition" parent="Transitions" instance=ExtResource("15_c1syf")]
+next_level_path = "res://levels/cave.tscn"
+next_spawn_point = "CharacterSpawn"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Transitions/CaveTransition"]
+position = Vector2(63.5, 47)
+shape = SubResource("RectangleShape2D_goqfp")
+
+[node name="CaveEntryBlocker" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CaveEntryBlocker"]
+position = Vector2(63, 63)
+shape = SubResource("RectangleShape2D_vvrs1")
