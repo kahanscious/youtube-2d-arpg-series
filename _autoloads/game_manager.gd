@@ -6,3 +6,4 @@ var character: Character = null
 
 func _ready() -> void:
 	character = character_scene.instantiate()
+	SceneTransition.next_spawn_point = "Default"
