@@ -1,5 +1,3 @@
-# Global game manager that handles character instantiation and game state
-# Maintains references to key game objects and manages starting conditions
 extends Node
 
 var character_scene: PackedScene = preload("res://character/character.tscn")

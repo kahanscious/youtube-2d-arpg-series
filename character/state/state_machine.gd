@@ -36,13 +36,3 @@ func physics_update(delta: float) -> void:
 func handle_input(event: InputEvent) -> void:
 	if current_state:
 		current_state.handle_input(event)
-
-
-func transition_to(new_state: String) -> void:
-	if states.has(new_state):
-		if current_state:
-			current_state.exit()
-		current_state = states[new_state]
-		current_state.enter()
-	else:
-		printerr("State ", new_state, " not found!")
