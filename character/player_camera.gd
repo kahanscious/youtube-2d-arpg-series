@@ -1,7 +1,5 @@
 class_name PlayerCamera extends Camera2D
 
-var target: Node2D
-
 
 func _ready() -> void:
 	await get_tree().process_frame

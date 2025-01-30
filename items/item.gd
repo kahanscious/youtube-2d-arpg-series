@@ -1,6 +1,6 @@
 class_name Item extends Resource
 
-enum ItemType { CONSUMABLE, WEAPON }
+enum ItemType {CONSUMABLE, WEAPON}
 
 @export var id: String
 @export var name: String

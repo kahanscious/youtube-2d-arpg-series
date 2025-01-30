@@ -807,7 +807,7 @@ position = Vector2(417, 230)
 [node name="Transitions" type="Node" parent="."]
 
 [node name="CaveTransition" parent="Transitions" instance=ExtResource("15_c1syf")]
-next_level_path = "res://levels/tutorial_cave.tscn"
+next_level_path = "res://levels/cave.tscn"
 next_spawn_point = "FromOutside"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Transitions/CaveTransition"]
