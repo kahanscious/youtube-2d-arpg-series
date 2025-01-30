@@ -1,5 +1,4 @@
 class_name Hitbox extends Area2D
-# deal damage
 
 @export var damage: int = 1
 

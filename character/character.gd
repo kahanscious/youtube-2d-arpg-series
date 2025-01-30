@@ -1,11 +1,14 @@
 class_name Character extends CharacterBody2D
 
+const ItemConfig = preload("res://items/item_config.gd")
+
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var state_machine: StateMachine = $StateMachine
 @onready var sword_audio: AudioStreamPlayer = $SwordAudio
 @onready var health_bar: ProgressBar = $HealthBar/ProgressBar
 @onready var camera: PlayerCamera = $Camera2D
+@onready var inventory: Inventory = $Inventory
 
 @export var speed: float = 100.0
 @export var acceleration: float = 800.0
@@ -46,6 +49,7 @@ func play_animation(animation_name: String) -> void:
 	if animation_player.has_animation(animation_name):
 		if is_attacking and animation_player.current_animation.begins_with("attack"):
 			return
+
 		animation_player.play(animation_name)
 
 

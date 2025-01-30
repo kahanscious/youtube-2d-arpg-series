@@ -1,0 +1,4 @@
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxxxx"]
+atlas = ExtResource("2_3h6k7")
+region = Rect2(0, 0, 16, 16)  # Just the first frame
+scale = Vector2(0.5, 0.5)     # Scale just the potion 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://l33psrubdfjr"]
+[gd_scene load_steps=31 format=3 uid="uid://l33psrubdfjr"]
 
 [ext_resource type="Script" path="res://character/character.gd" id="1_xc7lg"]
 [ext_resource type="Texture2D" uid="uid://c217j66sp6dlx" path="res://assets/characters/Full Spritesheet.png" id="2_6g2vd"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://7mmqtkod6yvx" path="res://components/hurtbox/hurtbox.tscn" id="8_nee7j"]
 [ext_resource type="PackedScene" uid="uid://c33sid50py53w" path="res://components/hitbox/hitbox.tscn" id="9_c4oxl"]
 [ext_resource type="AudioStream" uid="uid://ktysxhrwqron" path="res://assets/sfx/Battle/22_Slash_04.wav" id="10_qs8x1"]
+[ext_resource type="Script" path="res://items/inventory.gd" id="11_tm0dj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kder7"]
 size = Vector2(10, 16)
@@ -648,3 +649,6 @@ theme_override_styles/background = SubResource("StyleBoxFlat_gi50l")
 theme_override_styles/fill = SubResource("StyleBoxFlat_op2fp")
 value = 70.0
 show_percentage = false
+
+[node name="Inventory" type="Node" parent="."]
+script = ExtResource("11_tm0dj")

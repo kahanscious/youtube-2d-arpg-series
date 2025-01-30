@@ -1,9 +1,19 @@
 class_name PlayerCamera extends Camera2D
 
+@export var target_path: NodePath
+@export var follow_speed: float = 0.2
+
+var target: Node2D
+
 
 func _ready() -> void:
 	await get_tree().process_frame
 	setup_camera_limits()
+
+
+func _physics_process(delta: float) -> void:
+	if target:
+		global_position = global_position.lerp(target.global_position, follow_speed)
 
 
 func setup_camera_limits() -> void:
