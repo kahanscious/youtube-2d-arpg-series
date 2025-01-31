@@ -34,5 +34,6 @@ func level_setup(level: Level) -> void:
 
 
 func level_cleanup(level: Level) -> void:
+	print("Cleaning up level: ", level.name)
 	if level == current_level:
 		current_level = null

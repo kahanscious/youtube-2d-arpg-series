@@ -1,4 +1,4 @@
-extends Area2D
+class_name LevelTransition extends Area2D
 
 @export_file("*.tscn") var next_level_path: String
 @export var next_spawn_point: String

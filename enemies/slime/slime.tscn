@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://k8et0frvawkd"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_gq548"]
-[ext_resource type="Texture2D" uid="uid://umhrr2bsr827" path="res://assets/characters/slime_purple_side.png" id="2_xerkh"]
+[ext_resource type="Texture2D" uid="uid://umhrr2bsr827" path="res://assets/characters/slimes/slime_purple_side.png" id="2_xerkh"]
 [ext_resource type="Script" path="res://enemies/state/enemy_state_machine.gd" id="3_mkux0"]
 [ext_resource type="Script" path="res://enemies/slime/slime_idle.gd" id="4_loevp"]
 [ext_resource type="Script" path="res://enemies/slime/slime_move.gd" id="5_ibmhc"]

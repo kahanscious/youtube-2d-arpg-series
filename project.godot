@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 GameManager="*res://_autoloads/game_manager.gd"
 LevelManager="*res://_autoloads/level_manager.gd"
 SceneTransition="*res://levels/scene_transition/scene_transition.tscn"
+GameState="*res://_autoloads/game_state.gd"
 
 [display]
 
@@ -69,6 +70,7 @@ attack={
 [layer_names]
 
 2d_physics/layer_1="ground"
+2d_physics/layer_3="items"
 2d_physics/layer_5="player"
 2d_physics/layer_9="enemy"
 
