@@ -42,9 +42,11 @@ const SLIME_TEXTURES = {
 		if sprite:
 			_update_sprite_texture()
 
+
 func _ready() -> void:
 	super()
 	_update_sprite_texture()
+
 
 func _update_sprite_texture() -> void:
 	sprite.texture = SLIME_TEXTURES.get(slime_color, SLIME_TEXTURES[SlimeColor.DEFAULT])

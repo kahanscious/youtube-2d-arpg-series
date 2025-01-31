@@ -16,7 +16,3 @@ func _ready() -> void:
 
 func _on_slime_death() -> void:
 	cave_entry_blocker.queue_free()
-
-
-func _on_item_pickup_body_entered(body: Node2D) -> void:
-	pass

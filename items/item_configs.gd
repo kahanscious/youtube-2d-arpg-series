@@ -5,12 +5,6 @@ const ITEM_CONFIGS = {
 	{
 		"scale": Vector2(0.5, 0.5),
 		"heal_amount": 5,
-		# Other potion-specific settings
-	},
-	"other_item":
-	{
-		"scale": Vector2(1, 1),
-		# Other item settings
 	}
 }
 

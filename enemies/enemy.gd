@@ -11,6 +11,7 @@ signal died
 
 @export var hit_flash_duration: float = 0.2
 @export var knockback_force: float = 100.0
+@export var enemy_id: String
 
 var is_knocked_back: bool = false
 
@@ -20,14 +21,11 @@ var current_health: int:
 		if current_health <= 0:
 			die()
 
-@export var enemy_id: String
-
 
 func _ready() -> void:
 	if GameState.is_enemy_defeated(enemy_id):
 		queue_free()
 		return
-
 	current_health = max_health
 
 
@@ -44,7 +42,6 @@ func take_damage(amount: int) -> void:
 
 
 func die() -> void:
-	GameState.mark_enemy_defeated(enemy_id)
 	died.emit()
 	queue_free()
 
