@@ -4,7 +4,6 @@ const ITEM_CONFIGS = {
 	"health_potion":
 	{
 		"scale": Vector2(0.5, 0.5),
-		"heal_amount": 5,
 	}
 }
 

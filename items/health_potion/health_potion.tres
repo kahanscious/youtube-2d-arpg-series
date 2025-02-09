@@ -17,4 +17,5 @@ stackable = true
 max_stack_size = 5
 item_type = 0
 damage = 0
+heal_amount = 20
 use_animation_prefix = ""

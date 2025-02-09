@@ -10,4 +10,15 @@ enum ItemType { CONSUMABLE, WEAPON }
 @export var max_stack_size: int = 1
 @export var item_type: ItemType
 @export var damage: int = 0
+@export_range(0, 100) var heal_amount: int = 0
 @export var use_animation_prefix: String = ""
+
+
+func use(character: Character) -> bool:
+	match item_type:
+		ItemType.CONSUMABLE:
+			if heal_amount > 0:
+				return character.heal(heal_amount)
+		ItemType.WEAPON:
+			pass
+	return false

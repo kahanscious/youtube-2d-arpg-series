@@ -2,7 +2,7 @@ class_name Inventory extends Node
 
 signal inventory_changed
 
-@export var max_slots: int = 10
+@export var max_slots: int = 4
 
 var items: Array[Dictionary] = []
 
@@ -26,7 +26,7 @@ func add_item(item: Item, quantity: int = 1) -> bool:
 
 	for slot in items:
 		if not slot.item:
-			slot.item = items
+			slot.item = item
 			slot.quantity = min(quantity, item.max_stack_size)
 			inventory_changed.emit()
 			return true
@@ -36,7 +36,7 @@ func add_item(item: Item, quantity: int = 1) -> bool:
 
 func has_item(item_id: String) -> bool:
 	for slot in items:
-		if slot.item and slot.item_id == item_id:
+		if slot.item and slot.item.id == item_id:
 			return true
 	return false
 

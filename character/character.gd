@@ -79,3 +79,12 @@ func start_invulnerability() -> void:
 	is_invulnerable = true
 	await get_tree().create_timer(invulvnerability_time).timeout
 	is_invulnerable = false
+
+
+func heal(amount: int) -> bool:
+	if current_health >= max_health:
+		return false
+
+	current_health = min(current_health + amount, max_health)
+	health_bar.value = current_health
+	return true

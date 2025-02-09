@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7xkrkoiduafi"]
+
+[ext_resource type="Texture2D" uid="uid://dgdk4x6s38wmy" path="res://assets/ui/tilemap.png" id="1_8el1p"]
+[ext_resource type="Script" path="res://inventory/inventory_slot.gd" id="1_vwn5x"]
+[ext_resource type="FontFile" uid="uid://b2boendgcs7l6" path="res://assets/fonts/BitPotion.ttf" id="3_6jxvq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkl2q"]
+atlas = ExtResource("1_8el1p")
+region = Rect2(187, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqdsa"]
+atlas = ExtResource("1_8el1p")
+region = Rect2(170, 0, 16, 16)
+
+[node name="InventorySlot" type="TextureRect"]
+custom_minimum_size = Vector2(16, 16)
+offset_right = 16.0
+offset_bottom = 16.0
+texture = SubResource("AtlasTexture_hkl2q")
+stretch_mode = 4
+script = ExtResource("1_vwn5x")
+selected_texture = SubResource("AtlasTexture_kqdsa")
+
+[node name="SlotNumber" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 7.0
+offset_bottom = 7.0
+theme_override_colors/font_color = Color(0.223103, 0.223103, 0.223103, 1)
+theme_override_fonts/font = ExtResource("3_6jxvq")
+theme_override_font_sizes/font_size = 6
+text = "1"
+
+[node name="ItemIcon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+stretch_mode = 5
+
+[node name="QuantityLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -8.0
+offset_right = 1.0
+offset_bottom = 2.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("3_6jxvq")
+theme_override_font_sizes/font_size = 8
+text = "5"
