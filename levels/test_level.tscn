@@ -834,11 +834,14 @@ shape = SubResource("RectangleShape2D_t1gxs")
 position = Vector2(64, 62)
 shape = SubResource("RectangleShape2D_iymj6")
 
-[node name="ItemPickup" parent="." instance=ExtResource("16_eee45")]
+[node name="Potions" type="Node" parent="."]
+
+[node name="ItemPickup" parent="Potions" instance=ExtResource("16_eee45")]
 position = Vector2(322, 155)
+scale = Vector2(0.5, 0.5)
 collision_layer = 4
 collision_mask = 16
 item = ExtResource("17_00y8q")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="ItemPickup"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Potions/ItemPickup"]
 shape = SubResource("CircleShape2D_edds6")
