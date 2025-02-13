@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://q6jx6qi7ph3x"]
+[gd_scene load_steps=41 format=4 uid="uid://q6jx6qi7ph3x"]
 
 [ext_resource type="Script" path="res://levels/test_level.gd" id="1_q7spb"]
 [ext_resource type="Texture2D" uid="uid://d1gvl6lyvj0rs" path="res://assets/environment/forest_.png" id="1_vver3"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://m3qew2wmp0dt" path="res://levels/level_transition/level_transition.tscn" id="15_c1syf"]
 [ext_resource type="PackedScene" uid="uid://dnrrs7llhji2w" path="res://items/item_pickup.tscn" id="16_eee45"]
 [ext_resource type="Resource" uid="uid://bh7ajrftcmojv" path="res://items/health_potion/health_potion.tres" id="17_00y8q"]
+[ext_resource type="Resource" uid="uid://cd0g2j1fjycwv" path="res://items/pie/pie.tres" id="19_eym1w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p3dkm"]
 texture = ExtResource("1_vver3")
@@ -771,6 +772,12 @@ size = Vector2(23, 7)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_edds6"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_i4n1x"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qqd0b"]
+radius = 7.07107
+
 [node name="TestLevel" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_q7spb")
@@ -834,14 +841,32 @@ shape = SubResource("RectangleShape2D_t1gxs")
 position = Vector2(64, 62)
 shape = SubResource("RectangleShape2D_iymj6")
 
-[node name="Potions" type="Node" parent="."]
+[node name="Items" type="Node" parent="."]
 
-[node name="ItemPickup" parent="Potions" instance=ExtResource("16_eee45")]
+[node name="Potion" parent="Items" instance=ExtResource("16_eee45")]
 position = Vector2(322, 155)
 scale = Vector2(0.5, 0.5)
 collision_layer = 4
 collision_mask = 16
 item = ExtResource("17_00y8q")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Potions/ItemPickup"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Items/Potion"]
 shape = SubResource("CircleShape2D_edds6")
+
+[node name="Pie" parent="Items" instance=ExtResource("16_eee45")]
+position = Vector2(323, 195)
+collision_layer = 4
+collision_mask = 16
+item = ExtResource("19_eym1w")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Items/Pie"]
+shape = SubResource("CircleShape2D_i4n1x")
+
+[node name="Pie2" parent="Items" instance=ExtResource("16_eee45")]
+position = Vector2(365, 193)
+collision_layer = 4
+collision_mask = 16
+item = ExtResource("19_eym1w")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Items/Pie2"]
+shape = SubResource("CircleShape2D_qqd0b")
