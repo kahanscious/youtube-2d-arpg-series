@@ -16,6 +16,7 @@ region = Rect2(170, 0, 16, 16)
 custom_minimum_size = Vector2(16, 16)
 offset_right = 16.0
 offset_bottom = 16.0
+mouse_filter = 0
 texture = SubResource("AtlasTexture_hkl2q")
 stretch_mode = 4
 script = ExtResource("1_vwn5x")
@@ -45,6 +46,7 @@ offset_right = 4.0
 offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 expand_mode = 3
 stretch_mode = 5
 

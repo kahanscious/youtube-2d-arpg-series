@@ -12,6 +12,7 @@ enum ItemType { CONSUMABLE, WEAPON }
 @export var damage: int = 0
 @export_range(0, 100) var heal_amount: int = 0
 @export var use_animation_prefix: String = ""
+@export var pickup_scale: Vector2 = Vector2.ONE
 
 
 func use(character: Character) -> bool:

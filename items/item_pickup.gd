@@ -11,8 +11,6 @@ class_name ItemPickup extends Area2D
 			_update_sprite()
 @export var quantity: int = 1
 
-const ItemConfig = preload("res://items/item_configs.gd")
-
 
 func _ready() -> void:
 	if not item:
@@ -27,10 +25,7 @@ func _ready() -> void:
 
 	if not Engine.is_editor_hint():
 		await get_tree().process_frame
-
-		var config = ItemConfig.get_config(item.id)
-		if config.has("scale"):
-			scale = config.scale
+		scale = item.pickup_scale
 
 
 func _update_sprite() -> void:
