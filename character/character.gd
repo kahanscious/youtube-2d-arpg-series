@@ -12,6 +12,7 @@ class_name Character extends CharacterBody2D
 @export var friction: float = 1000.0
 @export var max_health: int = 10
 @export var invulvnerability_time: float = 0.6
+@export var character_name: String = "kahanscious"
 
 var current_health: int = max_health
 var direction: Vector2 = Vector2.ZERO

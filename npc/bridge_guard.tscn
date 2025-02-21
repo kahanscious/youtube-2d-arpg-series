@@ -1,0 +1,94 @@
+[gd_scene load_steps=10 format=3 uid="uid://ikugkbxafqm7"]
+
+[ext_resource type="PackedScene" uid="uid://5dkbenj77wo7" path="res://npc/npc.tscn" id="1_0lq3j"]
+[ext_resource type="Texture2D" uid="uid://do1l6jv4t77op" path="res://assets/characters/npc/littleJohn_.png" id="2_gh4yg"]
+[ext_resource type="Script" path="res://npc/bridge_guard.gd" id="2_lv2mx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxcew"]
+size = Vector2(15, 24)
+
+[sub_resource type="Animation" id="Animation_4pem3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_6ipy2"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_337lr"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iir3q"]
+_data = {
+"RESET": SubResource("Animation_4pem3"),
+"idle": SubResource("Animation_6ipy2"),
+"walk": SubResource("Animation_337lr")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_judeh"]
+size = Vector2(33, 32)
+
+[node name="BridgeGuard" instance=ExtResource("1_0lq3j")]
+script = ExtResource("2_lv2mx")
+move_position = Vector2(0, 0)
+character_name = "Lil John"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_gh4yg")
+hframes = 8
+vframes = 6
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(1.5, 2)
+shape = SubResource("RectangleShape2D_cxcew")
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_iir3q")
+}
+autoplay = "idle"
+
+[node name="CollisionShape2D2" parent="DialogueArea" index="1"]
+position = Vector2(6.5, 3)
+shape = SubResource("RectangleShape2D_judeh")
+debug_color = Color(0, 0.638, 0.39, 0.151)

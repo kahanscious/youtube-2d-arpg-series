@@ -7,14 +7,6 @@ var current_velocity: Vector2 = Vector2.ZERO
 
 
 func enter() -> void:
-	var mouse_pos = get_viewport().get_mouse_position()
-	var slots = GameManager.character.get_node("InventoryBar/Control/HBoxContainer/Slots")
-	if slots:
-		for slot in slots.get_children():
-			if slot.get_global_rect().has_point(mouse_pos):
-				state_machine.change_state("idle")
-				return
-
 	GameManager.character.is_attacking = true
 	GameManager.character.can_attack = false
 	attack_direction = GameManager.character.last_direction

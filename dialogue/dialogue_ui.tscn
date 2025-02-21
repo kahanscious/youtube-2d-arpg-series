@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://cww5hjd86uqx"]
+
+[ext_resource type="Script" path="res://dialogue/dialogue_ui.gd" id="1_q6vqq"]
+[ext_resource type="FontFile" uid="uid://b2boendgcs7l6" path="res://assets/fonts/BitPotion.ttf" id="2_gww4h"]
+
+[node name="DialogueUI" type="CanvasLayer"]
+script = ExtResource("1_q6vqq")
+
+[node name="DialogueBox" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(200, 20)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -50.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogueBox/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogueBox/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogueBox/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SpeakerName" type="Label" parent="DialogueBox/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_gww4h")
+theme_override_font_sizes/font_size = 16
+text = "Speaker"
+uppercase = true
+
+[node name="HSeparator" type="HSeparator" parent="DialogueBox/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Text" type="Label" parent="DialogueBox/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_gww4h")
+theme_override_font_sizes/font_size = 12
+text = "What the character is saying!"
+autowrap_mode = 2
