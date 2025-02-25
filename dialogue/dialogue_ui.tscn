@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cww5hjd86uqx"]
+[gd_scene load_steps=4 format=3 uid="uid://cww5hjd86uqx"]
 
 [ext_resource type="Script" path="res://dialogue/dialogue_ui.gd" id="1_q6vqq"]
 [ext_resource type="FontFile" uid="uid://b2boendgcs7l6" path="res://assets/fonts/BitPotion.ttf" id="2_gww4h"]
+
+[sub_resource type="Theme" id="Theme_a38b4"]
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("2_gww4h")
 
 [node name="DialogueUI" type="CanvasLayer"]
 script = ExtResource("1_q6vqq")
@@ -36,7 +40,14 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SpeakerName" type="Label" parent="DialogueBox/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogueBox/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Profile" type="TextureRect" parent="DialogueBox/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="SpeakerName" type="Label" parent="DialogueBox/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_gww4h")
 theme_override_font_sizes/font_size = 16
@@ -53,3 +64,8 @@ theme_override_fonts/font = ExtResource("2_gww4h")
 theme_override_font_sizes/font_size = 12
 text = "What the character is saying!"
 autowrap_mode = 2
+
+[node name="ChoiceContainer" type="HBoxContainer" parent="DialogueBox/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_a38b4")
+theme_override_constants/separation = 5
