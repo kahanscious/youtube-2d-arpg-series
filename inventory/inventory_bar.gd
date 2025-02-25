@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @onready var slots: HBoxContainer = $Control/HBoxContainer/Slots
+@onready var control: Control = $Control
 
 const SLOT_SCENE = preload("res://inventory/inventory_slot.tscn")
 
@@ -15,6 +16,13 @@ func _ready() -> void:
 		_create_slots(inventory.max_slots)
 	else:
 		print("No inventory found!")
+
+
+func _process(delta: float) -> void:
+	if DialogueManager.is_dialogue_active:
+		control.hide()
+	else:
+		control.show()
 
 
 func _create_slots(count: int) -> void:

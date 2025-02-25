@@ -26,6 +26,10 @@ func change_state(new_state_name: String) -> void:
 				return
 
 	if DialogueManager.is_dialogue_active:
+		if current_state and current_state.name.to_lower() != "idle":
+			current_state.exit()
+			current_state = states["idle"]
+			current_state.enter()
 		return
 
 	if current_state:

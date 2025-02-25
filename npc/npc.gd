@@ -25,3 +25,9 @@ func start_dialogue() -> void:
 func end_dialogue() -> void:
 	is_in_dialogue = false
 	dialogue_ended.emit()
+
+
+func get_profile() -> Texture2D:
+	if profile_texture:
+		return profile_texture
+	return null
