@@ -6,6 +6,7 @@ class_name Character extends CharacterBody2D
 @onready var sword_audio: AudioStreamPlayer = $SwordAudio
 @onready var health_bar: ProgressBar = $HealthBar/ProgressBar
 @onready var camera: PlayerCamera = $Camera2D
+@onready var hitbox: Hitbox = $Hitbox
 
 @export var speed: float = 100.0
 @export var acceleration: float = 800.0
@@ -47,18 +48,25 @@ func play_animation(animation_name: String) -> void:
 	if animation_player.has_animation(animation_name):
 		if is_attacking and animation_player.current_animation.begins_with("attack"):
 			return
+
+		sprite.flip_h = animation_name.contains("left")
+		if animation_name.contains("left"):
+			animation_name = animation_name.replace("left", "right")
 		animation_player.play(animation_name)
 
 
 func get_direction_name() -> String:
 	if last_direction.x < 0:
+		sprite.flip_h = true
+		hitbox.scale.x = -1
 		return "left"
-	elif last_direction.x > 0:
+	if last_direction.x > 0:
+		sprite.flip_h = false
+		hitbox.scale.x = 1
 		return "right"
-	elif last_direction.y < 0:
+	if last_direction.y < 0:
 		return "up"
-	else:
-		return "down"
+	return "down"
 
 
 func take_damage(amount: int) -> void:
