@@ -11,6 +11,13 @@ var slot_index: int = 0
 var _pending_slot_index: int = -1
 var dragging: bool = false
 var drag_data: Dictionary = {}
+var is_hotbar_slot: bool = false:
+	set(value):
+		is_hotbar_slot = value
+		if value:
+			modulate = Color.WHITE
+		else:
+			modulate = Color(1.2, 1.2, 0.9)
 
 static var held_item: Dictionary = {}
 static var original_slot_index: int = -1

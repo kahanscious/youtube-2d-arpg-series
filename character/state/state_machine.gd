@@ -19,7 +19,7 @@ func _ready() -> void:
 
 func change_state(new_state_name: String) -> void:
 	var mouse_pos = get_viewport().get_mouse_position()
-	var slots = GameManager.character.get_node("InventoryBar/Control/HBoxContainer/Slots")
+	var slots = GameManager.character.get_node("Inventory/InventoryBar/Control/HBoxContainer/Slots")
 	if slots:
 		for slot in slots.get_children():
 			if slot.get_global_rect().has_point(mouse_pos):

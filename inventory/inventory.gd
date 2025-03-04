@@ -2,12 +2,17 @@ class_name Inventory extends Node
 
 signal inventory_changed
 
-@export var max_slots: int = 4
+@export var hotbar_slots: int = 4
+@export var backpack_rows: int = 3
 
+var max_slots: int = 16
 var items: Array[Dictionary] = []
 
 
 func _ready() -> void:
+	var total_slots = hotbar_slots + (backpack_rows * hotbar_slots)
+	max_slots = total_slots
+
 	for i in range(max_slots):
 		items.append({"item": null, "quantity": 0})
 

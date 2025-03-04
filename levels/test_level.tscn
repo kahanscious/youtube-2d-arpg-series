@@ -818,7 +818,7 @@ scale = Vector2(14920.4, 5089.6)
 position = Vector2(64, 76)
 
 [node name="Default" parent="SpawnPoints" instance=ExtResource("14_72xje")]
-position = Vector2(-201, 52)
+position = Vector2(420, 199)
 
 [node name="FromDesert" parent="SpawnPoints" instance=ExtResource("14_72xje")]
 position = Vector2(-372, 55)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://l33psrubdfjr"]
+[gd_scene load_steps=33 format=3 uid="uid://l33psrubdfjr"]
 
 [ext_resource type="Script" path="res://character/character.gd" id="1_xc7lg"]
 [ext_resource type="Texture2D" uid="uid://sj12f64egdus" path="res://assets/characters/Player.png" id="2_8iif2"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://ktysxhrwqron" path="res://assets/sfx/Battle/22_Slash_04.wav" id="10_qs8x1"]
 [ext_resource type="PackedScene" uid="uid://c1p5e8psuhivy" path="res://inventory/inventory.tscn" id="11_8r4w4"]
 [ext_resource type="PackedScene" uid="uid://ds0cb2m2gmg7s" path="res://inventory/inventory_bar.tscn" id="12_a7qf6"]
+[ext_resource type="PackedScene" uid="uid://baej55qrq5wdb" path="res://inventory/inventory_backpack.tscn" id="13_backpack"]
 
 [sub_resource type="Animation" id="Animation_v0x5x"]
 length = 0.001
@@ -536,4 +537,7 @@ show_percentage = false
 
 [node name="Inventory" parent="." instance=ExtResource("11_8r4w4")]
 
-[node name="InventoryBar" parent="." instance=ExtResource("12_a7qf6")]
+[node name="InventoryBar" parent="Inventory" instance=ExtResource("12_a7qf6")]
+
+[node name="InventoryBackpack" parent="Inventory" instance=ExtResource("13_backpack")]
+layer = 10

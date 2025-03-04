@@ -1,0 +1,164 @@
+[gd_scene load_steps=16 format=3 uid="uid://baej55qrq5wdb"]
+
+[ext_resource type="Script" path="res://inventory/inventory_backpack.gd" id="1_bnxvs"]
+[ext_resource type="FontFile" uid="uid://b2boendgcs7l6" path="res://assets/fonts/BitPotion.ttf" id="2_mnnc6"]
+[ext_resource type="Texture2D" uid="uid://bsnqd7qbxflba" path="res://assets/ui/GUI_2x.png" id="2_ri72m"]
+[ext_resource type="Texture2D" uid="uid://dgdk4x6s38wmy" path="res://assets/ui/tilemap.png" id="4_w3asl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqte5"]
+atlas = ExtResource("2_ri72m")
+region = Rect2(192, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdcs6"]
+atlas = ExtResource("2_ri72m")
+region = Rect2(208, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yb7kc"]
+atlas = ExtResource("2_ri72m")
+region = Rect2(224, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6u52"]
+atlas = ExtResource("2_ri72m")
+region = Rect2(192, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jd2pj"]
+atlas = ExtResource("2_ri72m")
+region = Rect2(208, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jn4f1"]
+atlas = ExtResource("2_ri72m")
+region = Rect2(224, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixmpm"]
+atlas = ExtResource("2_ri72m")
+region = Rect2(192, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aihdv"]
+atlas = ExtResource("2_ri72m")
+region = Rect2(208, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yhlm"]
+atlas = ExtResource("2_ri72m")
+region = Rect2(224, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngq0m"]
+atlas = ExtResource("4_w3asl")
+region = Rect2(34, 17, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ns6k1"]
+atlas = ExtResource("4_w3asl")
+region = Rect2(34, 34, 16, 16)
+
+[node name="InventoryBackpack" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_bnxvs")
+
+[node name="BackpackContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="BackpackContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3)
+
+[node name="MarginContainer" type="MarginContainer" parent="BackpackContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -60.0
+offset_right = 80.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackgroundGrid" type="GridContainer" parent="BackpackContainer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/h_separation = -1
+theme_override_constants/v_separation = -1
+columns = 3
+
+[node name="TopLeft" type="TextureRect" parent="BackpackContainer/MarginContainer/BackgroundGrid"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_pqte5")
+
+[node name="Top" type="TextureRect" parent="BackpackContainer/MarginContainer/BackgroundGrid"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_jdcs6")
+
+[node name="TopRight" type="TextureRect" parent="BackpackContainer/MarginContainer/BackgroundGrid"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_yb7kc")
+
+[node name="Left" type="TextureRect" parent="BackpackContainer/MarginContainer/BackgroundGrid"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_i6u52")
+
+[node name="Center" type="TextureRect" parent="BackpackContainer/MarginContainer/BackgroundGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_jd2pj")
+
+[node name="Right" type="TextureRect" parent="BackpackContainer/MarginContainer/BackgroundGrid"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_jn4f1")
+
+[node name="BottomLeft" type="TextureRect" parent="BackpackContainer/MarginContainer/BackgroundGrid"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ixmpm")
+
+[node name="Bottom" type="TextureRect" parent="BackpackContainer/MarginContainer/BackgroundGrid"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_aihdv")
+
+[node name="BottomRight" type="TextureRect" parent="BackpackContainer/MarginContainer/BackgroundGrid"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_0yhlm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BackpackContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Control" type="Control" parent="BackpackContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BackpackContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BackpackContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_mnnc6")
+text = "BACKPACK"
+horizontal_alignment = 1
+
+[node name="SlotsContainer" type="GridContainer" parent="BackpackContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+columns = 4
+
+[node name="CloseButton" type="TextureButton" parent="."]
+offset_left = 228.0
+offset_top = 24.0
+offset_right = 244.0
+offset_bottom = 40.0
+texture_normal = SubResource("AtlasTexture_ngq0m")
+texture_pressed = SubResource("AtlasTexture_ns6k1")

@@ -1,4 +1,4 @@
-extends CanvasLayer
+class_name InventoryBar extends CanvasLayer
 
 @onready var slots: HBoxContainer = $Control/HBoxContainer/Slots
 @onready var control: Control = $Control
@@ -10,10 +10,10 @@ var selected_slot: int = -1
 
 
 func _ready() -> void:
-	inventory = get_node("../Inventory")
+	inventory = get_parent()
 	if inventory:
 		inventory.inventory_changed.connect(_on_inventory_changed)
-		_create_slots(inventory.max_slots)
+		_create_slots(inventory.hotbar_slots)
 	else:
 		print("No inventory found!")
 
@@ -44,6 +44,12 @@ func _input(event: InputEvent) -> void:
 
 
 func select_slot(index: int) -> void:
+	if index >= 0 and index < inventory.items.size():
+		var item_data = inventory.items[index]
+
+		if not item_data.item and index != selected_slot:
+			return
+
 	if index == selected_slot:
 		selected_slot = -1
 	else:
@@ -72,7 +78,7 @@ func use_selected_item() -> void:
 
 
 func _on_inventory_changed() -> void:
-	for i in range(inventory.items.size()):
+	for i in range(slots.get_child_count()):
 		var slot = slots.get_child(i)
 		var item_data = inventory.items[i]
 		if item_data.item:
