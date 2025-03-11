@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://baej55qrq5wdb"]
 
-[ext_resource type="Script" path="res://inventory/inventory_backpack.gd" id="1_bnxvs"]
+[ext_resource type="Script" uid="uid://csy0kp5fqysjf" path="res://inventory/inventory_backpack.gd" id="1_bnxvs"]
 [ext_resource type="FontFile" uid="uid://b2boendgcs7l6" path="res://assets/fonts/BitPotion.ttf" id="2_mnnc6"]
 [ext_resource type="Texture2D" uid="uid://bsnqd7qbxflba" path="res://assets/ui/GUI_2x.png" id="2_ri72m"]
 [ext_resource type="Texture2D" uid="uid://dgdk4x6s38wmy" path="res://assets/ui/tilemap.png" id="4_w3asl"]

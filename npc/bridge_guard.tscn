@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://5dkbenj77wo7" path="res://npc/npc.tscn" id="1_0lq3j"]
 [ext_resource type="Texture2D" uid="uid://do1l6jv4t77op" path="res://assets/characters/npc/littleJohn_.png" id="2_gh4yg"]
-[ext_resource type="Script" path="res://npc/bridge_guard.gd" id="2_lv2mx"]
+[ext_resource type="Script" uid="uid://esvau6x7gixr" path="res://npc/bridge_guard.gd" id="2_lv2mx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_du065"]
 atlas = ExtResource("2_gh4yg")
@@ -64,9 +64,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iir3q"]
 _data = {
-"RESET": SubResource("Animation_4pem3"),
-"idle": SubResource("Animation_6ipy2"),
-"walk": SubResource("Animation_337lr")
+&"RESET": SubResource("Animation_4pem3"),
+&"idle": SubResource("Animation_6ipy2"),
+&"walk": SubResource("Animation_337lr")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_judeh"]

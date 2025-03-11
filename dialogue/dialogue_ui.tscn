@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cww5hjd86uqx"]
 
-[ext_resource type="Script" path="res://dialogue/dialogue_ui.gd" id="1_q6vqq"]
+[ext_resource type="Script" uid="uid://c4xtfr8y800fg" path="res://dialogue/dialogue_ui.gd" id="1_q6vqq"]
 [ext_resource type="FontFile" uid="uid://b2boendgcs7l6" path="res://assets/fonts/BitPotion.ttf" id="2_gww4h"]
 
 [sub_resource type="Theme" id="Theme_a38b4"]

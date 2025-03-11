@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://k8et0frvawkd"]
 
-[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_gq548"]
+[ext_resource type="Script" uid="uid://b466qvl6wiai0" path="res://enemies/enemy.gd" id="1_gq548"]
 [ext_resource type="Texture2D" uid="uid://umhrr2bsr827" path="res://assets/characters/slimes/slime_purple_side.png" id="2_xerkh"]
-[ext_resource type="Script" path="res://enemies/state/enemy_state_machine.gd" id="3_mkux0"]
-[ext_resource type="Script" path="res://enemies/slime/slime_idle.gd" id="4_loevp"]
-[ext_resource type="Script" path="res://enemies/slime/slime_move.gd" id="5_ibmhc"]
+[ext_resource type="Script" uid="uid://ceqhv3mnk72ib" path="res://enemies/state/enemy_state_machine.gd" id="3_mkux0"]
+[ext_resource type="Script" uid="uid://d2djbfwx0ner0" path="res://enemies/slime/slime_idle.gd" id="4_loevp"]
+[ext_resource type="Script" uid="uid://pl0yhrculq17" path="res://enemies/slime/slime_move.gd" id="5_ibmhc"]
 [ext_resource type="PackedScene" uid="uid://c33sid50py53w" path="res://components/hitbox/hitbox.tscn" id="6_57mxt"]
 [ext_resource type="PackedScene" uid="uid://7mmqtkod6yvx" path="res://components/hurtbox/hurtbox.tscn" id="7_uvcpr"]
 
@@ -63,9 +63,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e4g76"]
 _data = {
-"RESET": SubResource("Animation_0wpd2"),
-"idle": SubResource("Animation_7vv2m"),
-"move": SubResource("Animation_7b257")
+&"RESET": SubResource("Animation_0wpd2"),
+&"idle": SubResource("Animation_7vv2m"),
+&"move": SubResource("Animation_7b257")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xb2qf"]

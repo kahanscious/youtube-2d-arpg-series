@@ -1,6 +1,6 @@
 [gd_scene load_steps=30 format=4 uid="uid://8kcnqalf3x5n"]
 
-[ext_resource type="Script" path="res://levels/level.gd" id="1_qg6qd"]
+[ext_resource type="Script" uid="uid://c0v5yh0fkgt7u" path="res://levels/level.gd" id="1_qg6qd"]
 [ext_resource type="Texture2D" uid="uid://bkhog8amxigyh" path="res://assets/environment/tundra/tundraPath_.png" id="2_gemuk"]
 [ext_resource type="Texture2D" uid="uid://dh6wxfa1p356a" path="res://assets/environment/tundra/tundra_ [ice].png" id="3_uedn4"]
 [ext_resource type="Texture2D" uid="uid://bu6bhqdivhlqj" path="res://assets/environment/tundra/tundra_.png" id="4_um56e"]

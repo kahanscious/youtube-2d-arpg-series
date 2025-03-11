@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://csxtcwa0hvugv"]
 
-[ext_resource type="Script" path="res://levels/scene_transition/scene_transition.gd" id="1_6fj84"]
+[ext_resource type="Script" uid="uid://df73lvci7r3k1" path="res://levels/scene_transition/scene_transition.gd" id="1_6fj84"]
 
 [node name="SceneTransition" type="CanvasLayer"]
 script = ExtResource("1_6fj84")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b7xkrkoiduafi"]
 
 [ext_resource type="Texture2D" uid="uid://dgdk4x6s38wmy" path="res://assets/ui/tilemap.png" id="1_8el1p"]
-[ext_resource type="Script" path="res://inventory/inventory_slot.gd" id="1_vwn5x"]
+[ext_resource type="Script" uid="uid://dshtymaukuc3g" path="res://inventory/inventory_slot.gd" id="1_vwn5x"]
 [ext_resource type="FontFile" uid="uid://b2boendgcs7l6" path="res://assets/fonts/BitPotion.ttf" id="3_6jxvq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hkl2q"]

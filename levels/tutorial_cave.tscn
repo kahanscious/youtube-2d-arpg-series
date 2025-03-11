@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://ds6lvmyf1etvi"]
 
 [ext_resource type="Texture2D" uid="uid://dinr00fufpl66" path="res://assets/environment/cave/cave_.png" id="1_2f3gd"]
-[ext_resource type="Script" path="res://levels/level.gd" id="1_tqx1b"]
+[ext_resource type="Script" uid="uid://c0v5yh0fkgt7u" path="res://levels/level.gd" id="1_tqx1b"]
 [ext_resource type="PackedScene" uid="uid://t1rtdkpmdm1k" path="res://character/character_spawn.tscn" id="2_h1a6j"]
 [ext_resource type="PackedScene" uid="uid://m3qew2wmp0dt" path="res://levels/level_transition/level_transition.tscn" id="3_cfems"]
 

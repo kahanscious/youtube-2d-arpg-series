@@ -1,12 +1,12 @@
 [gd_scene load_steps=33 format=3 uid="uid://l33psrubdfjr"]
 
-[ext_resource type="Script" path="res://character/character.gd" id="1_xc7lg"]
+[ext_resource type="Script" uid="uid://deolupy8la60j" path="res://character/character.gd" id="1_xc7lg"]
 [ext_resource type="Texture2D" uid="uid://sj12f64egdus" path="res://assets/characters/Player.png" id="2_8iif2"]
-[ext_resource type="Script" path="res://character/player_camera.gd" id="3_pope0"]
-[ext_resource type="Script" path="res://character/state/state_machine.gd" id="4_blsty"]
-[ext_resource type="Script" path="res://character/state/idle_state.gd" id="5_xfrs5"]
-[ext_resource type="Script" path="res://character/state/move_state.gd" id="6_ixtp0"]
-[ext_resource type="Script" path="res://character/state/attack_state.gd" id="7_3ymy1"]
+[ext_resource type="Script" uid="uid://dtchlkspfljan" path="res://character/player_camera.gd" id="3_pope0"]
+[ext_resource type="Script" uid="uid://bsxxr2ngrfif5" path="res://character/state/state_machine.gd" id="4_blsty"]
+[ext_resource type="Script" uid="uid://ppcbxy7ojsg0" path="res://character/state/idle_state.gd" id="5_xfrs5"]
+[ext_resource type="Script" uid="uid://b3ijjy525pvbg" path="res://character/state/move_state.gd" id="6_ixtp0"]
+[ext_resource type="Script" uid="uid://d0r4g8hbafppe" path="res://character/state/attack_state.gd" id="7_3ymy1"]
 [ext_resource type="PackedScene" uid="uid://7mmqtkod6yvx" path="res://components/hurtbox/hurtbox.tscn" id="8_nee7j"]
 [ext_resource type="PackedScene" uid="uid://c33sid50py53w" path="res://components/hitbox/hitbox.tscn" id="9_c4oxl"]
 [ext_resource type="AudioStream" uid="uid://ktysxhrwqron" path="res://assets/sfx/Battle/22_Slash_04.wav" id="10_qs8x1"]
@@ -423,19 +423,19 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tn2ua"]
 _data = {
-"RESET": SubResource("Animation_v0x5x"),
-"attack_down": SubResource("Animation_d5sjg"),
-"attack_left": SubResource("Animation_eng0c"),
-"attack_right": SubResource("Animation_vj3cl"),
-"attack_up": SubResource("Animation_l3q6l"),
-"idle_down": SubResource("Animation_43mmh"),
-"idle_left": SubResource("Animation_yi2de"),
-"idle_right": SubResource("Animation_xuv34"),
-"idle_up": SubResource("Animation_7oj15"),
-"move_down": SubResource("Animation_y5d0y"),
-"move_left": SubResource("Animation_7evsa"),
-"move_right": SubResource("Animation_m38ds"),
-"move_up": SubResource("Animation_yqt07")
+&"RESET": SubResource("Animation_v0x5x"),
+&"attack_down": SubResource("Animation_d5sjg"),
+&"attack_left": SubResource("Animation_eng0c"),
+&"attack_right": SubResource("Animation_vj3cl"),
+&"attack_up": SubResource("Animation_l3q6l"),
+&"idle_down": SubResource("Animation_43mmh"),
+&"idle_left": SubResource("Animation_yi2de"),
+&"idle_right": SubResource("Animation_xuv34"),
+&"idle_up": SubResource("Animation_7oj15"),
+&"move_down": SubResource("Animation_y5d0y"),
+&"move_left": SubResource("Animation_7evsa"),
+&"move_right": SubResource("Animation_m38ds"),
+&"move_up": SubResource("Animation_yqt07")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kder7"]
@@ -475,7 +475,7 @@ vframes = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_tn2ua")
+&"": SubResource("AnimationLibrary_tn2ua")
 }
 autoplay = "idle_down"
 

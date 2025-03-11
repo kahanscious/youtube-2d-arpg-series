@@ -1,0 +1,111 @@
+[gd_scene load_steps=19 format=3 uid="uid://bljoghlkrnelt"]
+
+[ext_resource type="Script" uid="uid://cyfcidilh7468" path="res://items/chest.gd" id="1_twpm2"]
+[ext_resource type="Texture2D" uid="uid://d2tx3rdib8ttu" path="res://assets/environment/forest/forest_ [resources].png" id="2_ir76g"]
+[ext_resource type="Texture2D" uid="uid://l2reasc2joni" path="res://assets/environment/cave/caveObjects_.png" id="3_sotjn"]
+[ext_resource type="Texture2D" uid="uid://pmjj6xt5tscj" path="res://assets/environment/desert/desert_ [resources].png" id="5_m4vt0"]
+[ext_resource type="Texture2D" uid="uid://c73xdndv7tjab" path="res://assets/environment/tundra/tundra_ [resources].png" id="6_8mxgl"]
+[ext_resource type="Resource" uid="uid://cd0g2j1fjycwv" path="res://items/pie/pie.tres" id="8_aagiq"]
+[ext_resource type="Script" uid="uid://biyfpnegfvxon" path="res://items/item.gd" id="8_m4vt0"]
+[ext_resource type="Resource" uid="uid://bh7ajrftcmojv" path="res://items/health_potion/health_potion.tres" id="9_8mxgl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ounuf"]
+atlas = ExtResource("2_ir76g")
+region = Rect2(16, 80, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehr15"]
+atlas = ExtResource("3_sotjn")
+region = Rect2(64, 80, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5s33"]
+atlas = ExtResource("5_m4vt0")
+region = Rect2(16, 80, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_na7ki"]
+atlas = ExtResource("6_8mxgl")
+region = Rect2(16, 80, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir76g"]
+atlas = ExtResource("2_ir76g")
+region = Rect2(16, 80, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ounuf"]
+size = Vector2(14, 19)
+
+[sub_resource type="Animation" id="Animation_ir76g"]
+resource_name = "open"
+length = 0.2
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.199951),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_ounuf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ehr15"]
+_data = {
+&"RESET": SubResource("Animation_ounuf"),
+&"open": SubResource("Animation_ir76g")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir76g"]
+size = Vector2(24, 26)
+
+[node name="Chest" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 16
+script = ExtResource("1_twpm2")
+forest_chest = SubResource("AtlasTexture_ounuf")
+cave_chest = SubResource("AtlasTexture_ehr15")
+desert_chest = SubResource("AtlasTexture_u5s33")
+tundra_chest = SubResource("AtlasTexture_na7ki")
+loot = Array[ExtResource("8_m4vt0")]([ExtResource("9_8mxgl"), ExtResource("8_aagiq")])
+loot_quanitities = Array[int]([4, 1])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_ir76g")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_ounuf")
+debug_color = Color(0, 0.6, 0.7, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ehr15")
+}
+
+[node name="InteractArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_ir76g")
+debug_color = Color(0, 0.6, 0.7, 0)
+
+[connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]

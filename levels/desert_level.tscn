@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=4 uid="uid://ddptqr75iqv0s"]
 
-[ext_resource type="Script" path="res://levels/level.gd" id="1_hgufk"]
+[ext_resource type="Script" uid="uid://c0v5yh0fkgt7u" path="res://levels/level.gd" id="1_hgufk"]
 [ext_resource type="Texture2D" uid="uid://dma1mf0mx8fc6" path="res://assets/environment/desert/desert_.png" id="2_imf4q"]
 [ext_resource type="Texture2D" uid="uid://bin724j2oimbu" path="res://assets/environment/desert/desert_ [bridgeAnimatedTiles].png" id="3_t48iq"]
 [ext_resource type="Texture2D" uid="uid://ht8t7gtexpsy" path="res://assets/environment/desert/desert_ [bridgeHorizontal].png" id="4_vnovy"]

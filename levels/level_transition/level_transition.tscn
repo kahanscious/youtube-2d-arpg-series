@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://m3qew2wmp0dt"]
 
-[ext_resource type="Script" path="res://levels/level_transition/level_transition.gd" id="1_pgt7f"]
+[ext_resource type="Script" uid="uid://cio8f7wvp2xgg" path="res://levels/level_transition/level_transition.gd" id="1_pgt7f"]
 
 [node name="LevelTransition" type="Area2D"]
 collision_layer = 0

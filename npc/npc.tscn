@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://5dkbenj77wo7"]
 
-[ext_resource type="Script" path="res://npc/npc.gd" id="1_lsqvw"]
+[ext_resource type="Script" uid="uid://513eugly4yjw" path="res://npc/npc.gd" id="1_lsqvw"]
 [ext_resource type="PackedScene" uid="uid://m5w13qkyrqji" path="res://dialogue/dialogue_area.tscn" id="2_oh2g8"]
 
 [node name="NPC" type="CharacterBody2D"]
