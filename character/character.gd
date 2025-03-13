@@ -7,6 +7,9 @@ class_name Character extends CharacterBody2D
 @onready var health_bar: ProgressBar = $HealthBar/ProgressBar
 @onready var camera: PlayerCamera = $Camera2D
 @onready var hitbox: Hitbox = $Hitbox
+@onready var inventory_bar: InventoryBar = $Inventory/InventoryBar
+@onready var inventory_backpack: CanvasLayer = $Inventory/InventoryBackpack
+@onready var inventory: Inventory = $Inventory
 
 @export var speed: float = 100.0
 @export var acceleration: float = 800.0

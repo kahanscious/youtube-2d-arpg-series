@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ConsumableItem" load_steps=4 format=3 uid="uid://cd0g2j1fjycwv"]
+
+[ext_resource type="Texture2D" uid="uid://cpoy0v8smvuok" path="res://assets/items/items.png" id="1_ntxyr"]
+[ext_resource type="Script" uid="uid://dcvdxga8cglps" path="res://items/consumable_item.gd" id="2_kkjo7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qr432"]
+atlas = ExtResource("1_ntxyr")
+region = Rect2(48, 128, 16, 16)
+
+[resource]
+script = ExtResource("2_kkjo7")
+heal_amount = 20
+effect_duration = 0.0
+id = "pie"
+name = "Pie"
+icon = SubResource("AtlasTexture_qr432")
+description = "A tasty pie"
+stackable = false
+max_stack_size = 1
+use_animation_prefix = ""
+pickup_scale = Vector2(0.5, 0.5)

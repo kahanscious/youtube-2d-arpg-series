@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://b8ljk3ef54kc2"]
+[gd_scene load_steps=18 format=4 uid="uid://b8ljk3ef54kc2"]
 
 [ext_resource type="Script" uid="uid://c0v5yh0fkgt7u" path="res://levels/level.gd" id="1_ktix2"]
 [ext_resource type="Texture2D" uid="uid://jn3171eal6it" path="res://assets/environment/interior_/interior_.png" id="2_b2wxa"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bkexgj41gjpq8" path="res://assets/environment/interior_/tableObjects_.png" id="5_wrn82"]
 [ext_resource type="PackedScene" uid="uid://t1rtdkpmdm1k" path="res://character/character_spawn.tscn" id="6_qmpxa"]
 [ext_resource type="PackedScene" uid="uid://m3qew2wmp0dt" path="res://levels/level_transition/level_transition.tscn" id="7_hes2e"]
+[ext_resource type="PackedScene" uid="uid://dnrrs7llhji2w" path="res://items/item_pickup.tscn" id="8_i3qq6"]
+[ext_resource type="Resource" uid="uid://byp3016uvhom" path="res://items/weapons/sword.tres" id="9_jec56"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r8tuh"]
 texture = ExtResource("2_b2wxa")
@@ -545,3 +547,8 @@ debug_color = Color(0.57633, 0.465752, 0.785874, 0.42)
 
 [node name="HouseSpawn" parent="SpawnPoints" instance=ExtResource("6_qmpxa")]
 position = Vector2(102, 143)
+
+[node name="ItemPickup" parent="." instance=ExtResource("8_i3qq6")]
+z_index = 1
+position = Vector2(179, 147)
+item = ExtResource("9_jec56")

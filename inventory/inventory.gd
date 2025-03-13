@@ -7,6 +7,7 @@ signal inventory_changed
 
 var max_slots: int = 16
 var items: Array[Dictionary] = []
+var active_slot_index: int = -1
 
 
 func _ready() -> void:
@@ -15,6 +16,17 @@ func _ready() -> void:
 
 	for i in range(max_slots):
 		items.append({"item": null, "quantity": 0})
+
+
+func get_active_item() -> Item:
+	if active_slot_index >= 0 and active_slot_index < hotbar_slots:
+		return items[active_slot_index].item
+	return null
+
+
+func set_active_slot(index: int) -> void:
+	active_slot_index = index
+	inventory_changed.emit()
 
 
 func add_item(item: Item, quantity: int = 1) -> bool:

@@ -523,7 +523,6 @@ disabled = true
 stream = ExtResource("10_qs8x1")
 
 [node name="HealthBar" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ProgressBar" type="ProgressBar" parent="HealthBar"]
 offset_left = 5.0

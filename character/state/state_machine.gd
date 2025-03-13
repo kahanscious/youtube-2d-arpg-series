@@ -19,7 +19,7 @@ func _ready() -> void:
 
 func change_state(new_state_name: String) -> void:
 	var mouse_pos = get_viewport().get_mouse_position()
-	var slots = GameManager.character.get_node("Inventory/InventoryBar/Control/HBoxContainer/Slots")
+	var slots = GameManager.character.inventory_bar.slots
 	if slots:
 		for slot in slots.get_children():
 			if slot.get_global_rect().has_point(mouse_pos):
@@ -31,6 +31,11 @@ func change_state(new_state_name: String) -> void:
 			current_state = states["idle"]
 			current_state.enter()
 		return
+
+	if new_state_name == "attack":
+		var active_item = GameManager.character.inventory.get_active_item()
+		if not active_item is WeaponItem:
+			return
 
 	if current_state:
 		current_state.exit()

@@ -52,8 +52,10 @@ func select_slot(index: int) -> void:
 
 	if index == selected_slot:
 		selected_slot = -1
+		inventory.set_active_slot(-1)
 	else:
 		selected_slot = index
+		inventory.set_active_slot(index)
 
 	for i in range(slots.get_child_count()):
 		var slot = slots.get_child(i)
@@ -85,3 +87,5 @@ func _on_inventory_changed() -> void:
 			slot.set_item(item_data.item, item_data.quantity)
 		else:
 			slot.clear()
+
+		slot.set_selected(i == selected_slot)

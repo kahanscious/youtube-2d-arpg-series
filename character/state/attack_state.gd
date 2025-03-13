@@ -7,14 +7,20 @@ var current_velocity: Vector2 = Vector2.ZERO
 
 
 func enter() -> void:
-	GameManager.character.is_attacking = true
-	GameManager.character.can_attack = false
-	attack_direction = GameManager.character.last_direction
+	var active_item = GameManager.character.inventory.get_active_item()
 
-	GameManager.character.play_animation("attack_" + GameManager.character.get_direction_name())
+	if active_item is WeaponItem:
+		var damage = 1
 
-	GameManager.character.sword_audio.pitch_scale = randf_range(0.8, 1.2)
-	GameManager.character.sword_audio.play()
+		GameManager.character.is_attacking = true
+		GameManager.character.can_attack = false
+		attack_direction = GameManager.character.last_direction
+		damage = active_item.damage
+
+		GameManager.character.play_animation("attack_" + GameManager.character.get_direction_name())
+
+		GameManager.character.sword_audio.pitch_scale = randf_range(0.8, 1.2)
+		GameManager.character.sword_audio.play()
 
 
 func exit() -> void:

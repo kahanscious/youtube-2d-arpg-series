@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://l2reasc2joni" path="res://assets/environment/cave/caveObjects_.png" id="3_sotjn"]
 [ext_resource type="Texture2D" uid="uid://pmjj6xt5tscj" path="res://assets/environment/desert/desert_ [resources].png" id="5_m4vt0"]
 [ext_resource type="Texture2D" uid="uid://c73xdndv7tjab" path="res://assets/environment/tundra/tundra_ [resources].png" id="6_8mxgl"]
-[ext_resource type="Resource" uid="uid://cd0g2j1fjycwv" path="res://items/pie/pie.tres" id="8_aagiq"]
+[ext_resource type="Resource" uid="uid://cd0g2j1fjycwv" path="res://items/consumables/pie.tres" id="8_aagiq"]
 [ext_resource type="Script" uid="uid://biyfpnegfvxon" path="res://items/item.gd" id="8_m4vt0"]
-[ext_resource type="Resource" uid="uid://bh7ajrftcmojv" path="res://items/health_potion/health_potion.tres" id="9_8mxgl"]
+[ext_resource type="Resource" uid="uid://bh7ajrftcmojv" path="res://items/consumables/health_potion.tres" id="9_8mxgl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ounuf"]
 atlas = ExtResource("2_ir76g")

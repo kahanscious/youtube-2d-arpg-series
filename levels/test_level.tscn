@@ -17,8 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://t1rtdkpmdm1k" path="res://character/character_spawn.tscn" id="14_72xje"]
 [ext_resource type="PackedScene" uid="uid://m3qew2wmp0dt" path="res://levels/level_transition/level_transition.tscn" id="15_c1syf"]
 [ext_resource type="PackedScene" uid="uid://dnrrs7llhji2w" path="res://items/item_pickup.tscn" id="16_eee45"]
-[ext_resource type="Resource" uid="uid://bh7ajrftcmojv" path="res://items/health_potion/health_potion.tres" id="17_00y8q"]
-[ext_resource type="Resource" uid="uid://cd0g2j1fjycwv" path="res://items/pie/pie.tres" id="19_eym1w"]
+[ext_resource type="Resource" uid="uid://bh7ajrftcmojv" path="res://items/consumables/health_potion.tres" id="17_00y8q"]
+[ext_resource type="Resource" uid="uid://cd0g2j1fjycwv" path="res://items/consumables/pie.tres" id="19_eym1w"]
 [ext_resource type="PackedScene" uid="uid://ikugkbxafqm7" path="res://npc/bridge_guard.tscn" id="20_d2st0"]
 [ext_resource type="PackedScene" uid="uid://bljoghlkrnelt" path="res://items/chest.tscn" id="21_n4g7x"]
 
