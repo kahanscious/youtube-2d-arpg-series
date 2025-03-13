@@ -10,12 +10,10 @@ func enter() -> void:
 	var active_item = GameManager.character.inventory.get_active_item()
 
 	if active_item is WeaponItem:
-		var damage = 1
-
 		GameManager.character.is_attacking = true
 		GameManager.character.can_attack = false
 		attack_direction = GameManager.character.last_direction
-		damage = active_item.damage
+		GameManager.character.hitbox.damage = active_item.damage
 
 		GameManager.character.play_animation("attack_" + GameManager.character.get_direction_name())
 
